@@ -1,0 +1,25 @@
+.header_wrapper{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    font:900 20px Roboto;
+    background: #335072;
+    box-shadow: 0px 8px 24px 1px rgb(25 44 58 / 90%);
+    color: #00ffc8;
+    margin-bottom: 20px;
+}
+.span_header{
+    animation: spanAnimation 2s infinite;
+    font-size: 25px;
+}
+@keyframes spanAnimation {
+    0%{
+        color: #00ffc8;
+    }
+    50%{
+        color: #335072;
+    }
+    100%{
+        color: #00ffc8;
+    }
+}
