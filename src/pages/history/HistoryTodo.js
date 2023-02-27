@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch} from 'react-redux';
 import {removeDeletedTodo,removeAllDeletedTodo} from "../../reduxToolkit/reduxReducer";
 import styles from './History.module.scss'
+import { motion } from "framer-motion";
 
 const HistoryTodo = () => {
 
@@ -11,10 +12,13 @@ const HistoryTodo = () => {
 
     function refreshPage() {
         window.location.reload(true);
-      }
+    }
 
     return (
-        <div className={styles.wrapper_deleted_todo}>
+        <motion.div className={styles.wrapper_deleted_todo}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{duration: 0.5,delay: 0.3}}>
             {deletedTodo.map(element => {
                 console.log(element.id);
                 return <div className={styles.wrapper_todo_list} key={element.id}>
@@ -33,7 +37,7 @@ const HistoryTodo = () => {
                                         refreshPage()
                                     }}>Очистити історію</button>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

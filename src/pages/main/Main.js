@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from './Main.module.scss'
 import { addTodo, removeTodo,completeTodo} from "../../reduxToolkit/reduxReducer";
 import { useSelector, useDispatch} from 'react-redux';
+import { motion } from "framer-motion";
 
 const Main = () => {
 
@@ -36,7 +37,10 @@ const Main = () => {
         }
     }
     return (
-        <div className={styles.wrapper_todo}>
+        <motion.div className={styles.wrapper_todo} 
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{duration: 0.5,delay: 0.3}}>
             <div className={styles.wrappper_todo_form}>
                 <form className={styles.todo_form} onSubmit={handlerDefault}>
                     <div className={styles.wrapper_inputs_form}>
@@ -69,7 +73,7 @@ const Main = () => {
                 }
             })}
             <Link className={styles.history_btn} to='/history'>перейти до історії</Link>
-        </div>
+        </motion.div>
     );
 };
 
